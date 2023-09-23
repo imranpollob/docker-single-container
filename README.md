@@ -11,10 +11,17 @@ docker build -t node-test-image .
 Run:
 ```
 docker run \
---rm \ # remove the container after exit
---it \ # open interective shell
---name node-test-container \ # give a name to the container
--p 3000:3000 \ # mapping the ports
--v $(pwd):/app \ # opening a volumn
-node-test-image # container name
+--rm \
+-it \
+--name node-test-container \
+-p 3000:3000 \
+-v $(pwd):/app \
+node-test-image
+
+# --rm: remove the container after exit
+# -it: open interective shell
+# --name: give a name to the container
+# -p: mapping the ports source:destination
+# -v: mount a volumn source:destination
+# $(pwd): prints current working directory 
 ```
